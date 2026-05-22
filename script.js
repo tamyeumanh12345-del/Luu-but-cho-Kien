@@ -8,19 +8,13 @@ import {
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-
-  apiKey: "YOUR_API_KEY",
-
-  authDomain: "YOUR_AUTH_DOMAIN",
-
-  projectId: "YOUR_PROJECT_ID",
-
-  storageBucket: "YOUR_STORAGE_BUCKET",
-
-  messagingSenderId: "YOUR_SENDER_ID",
-
-  appId: "YOUR_APP_ID"
-
+  apiKey: "AIzaSyDNGr1HMpZ6uajNpq-ZkrUAKHTiBHG9T2I",
+  authDomain: "luu-but-52647.firebaseapp.com",
+  projectId: "luu-but-52647",
+  storageBucket: "luu-but-52647.firebasestorage.app",
+  messagingSenderId: "569736243796",
+  appId: "1:569736243796:web:0c37363f469fe6d0f39bc1",
+  measurementId: "G-NTKD0DY13X"
 };
 
 const app = initializeApp(firebaseConfig);
