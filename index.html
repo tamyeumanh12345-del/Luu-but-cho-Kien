@@ -1,77 +1,536 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
 
   <title>Write Something For Me 💌</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+  href="https://fonts.googleapis.com">
 
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
 
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap"
+  rel="stylesheet">
+
+  <style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:'Quicksand', sans-serif;
+
+  background:linear-gradient(
+    to bottom,
+    #ffe0ea,
+    #fff5f9,
+    #edf7ff
+  );
+
+  overflow-x:hidden;
+
+  min-height:100vh;
+}
+
+/* INTRO */
+
+#intro{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100vh;
+
+  background:linear-gradient(
+    to bottom,
+    #ffdce8,
+    #fff3f7,
+    #edf8ff
+  );
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  z-index:99999;
+
+  transition:1.5s ease;
+}
+
+.intro-content{
+  text-align:center;
+}
+
+.intro-content h1{
+
+  font-size:5rem;
+
+  color:#ff6da9;
+
+  font-family:'Pacifico', cursive;
+
+  margin-bottom:20px;
+}
+
+.intro-content p{
+
+  font-size:1.3rem;
+
+  color:#666;
+
+  animation:blink 2s infinite;
+}
+
+@keyframes blink{
+
+  0%,100%{
+    opacity:1;
+  }
+
+  50%{
+    opacity:.3;
+  }
+
+}
+
+/* HERO */
+
+.hero{
+
+  min-height:80vh;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  padding:40px;
+}
+
+.hero h1{
+
+  font-size:5rem;
+
+  color:#ff6da9;
+
+  font-family:'Pacifico', cursive;
+
+  margin-bottom:30px;
+}
+
+.hero p{
+
+  max-width:850px;
+
+  font-size:1.3rem;
+
+  line-height:2;
+
+  color:#555;
+}
+
+/* FORM */
+
+.form-section{
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  padding:100px 20px;
+}
+
+.form-box{
+
+  width:700px;
+
+  background:white;
+
+  padding:50px;
+
+  border-radius:35px;
+
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+  text-align:center;
+}
+
+.form-box h2{
+
+  font-size:3rem;
+
+  color:#ff6da9;
+
+  margin-bottom:35px;
+
+  font-family:'Pacifico', cursive;
+}
+
+.form-box input,
+.form-box textarea{
+
+  width:100%;
+
+  border:none;
+
+  background:#fff3f7;
+
+  padding:22px;
+
+  border-radius:20px;
+
+  margin-bottom:20px;
+
+  font-size:1rem;
+
+  font-family:'Quicksand', sans-serif;
+
+  outline:none;
+}
+
+.form-box textarea{
+
+  height:220px;
+
+  resize:none;
+}
+
+.form-box button{
+
+  padding:18px 45px;
+
+  border:none;
+
+  border-radius:50px;
+
+  background:#ff6da9;
+
+  color:white;
+
+  font-size:1rem;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.form-box button:hover{
+
+  transform:scale(1.05);
+
+  background:#ff4f96;
+}
+
+#status{
+
+  margin-top:20px;
+
+  color:#ff6da9;
+}
+
+/* HEARTS */
+
+.heart{
+
+  position:fixed;
+
+  bottom:-20px;
+
+  color:#ff6da9;
+
+  animation:floatUp linear forwards;
+
+  pointer-events:none;
+
+  z-index:999;
+}
+
+@keyframes floatUp{
+
+  0%{
+    transform:translateY(0);
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(-120vh);
+    opacity:0;
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .intro-content h1{
+    font-size:3rem;
+  }
+
+  .hero h1{
+    font-size:3rem;
+  }
+
+  .hero p{
+    font-size:1rem;
+  }
+
+  .form-box{
+
+    width:100%;
+
+    padding:30px;
+  }
+
+  .form-box h2{
+    font-size:2rem;
+  }
+
+}
+
+  </style>
+
 </head>
+
 <body>
 
-  <!-- INTRO -->
+<!-- INTRO -->
 
-  <div id="intro">
+<div id="intro">
 
-    <div class="intro-content">
+  <div class="intro-content">
 
-      <h1>Our Youth ✨</h1>
+    <h1>Our Youth ✨</h1>
 
-      <p>click anywhere to enter</p>
-
-    </div>
+    <p>
+      click anywhere to enter
+    </p>
 
   </div>
 
-  <!-- MUSIC -->
+</div>
 
-  <audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
+<!-- MUSIC -->
 
-  <!-- HERO -->
+<audio id="music" loop>
 
-  <section class="hero">
+  <source src="music.mp3"
+  type="audio/mpeg">
 
-    <h1>Write Something For Me 💌</h1>
+</audio>
 
-    <p>
-      Có thể sau này chúng ta sẽ không còn gặp nhau mỗi ngày nữa.
-      Nhưng mình hy vọng sẽ luôn nhớ về nhau bằng những ký ức đẹp nhất.
-    </p>
+<!-- HERO -->
 
-  </section>
+<section class="hero">
 
-  <!-- FORM -->
+  <h1>
+    Write Something For Me 💌
+  </h1>
 
-  <section class="form-section">
+  <p>
+    Có thể sau này chúng ta sẽ không còn gặp nhau mỗi ngày nữa.
+    Nhưng mình hy vọng chúng ta sẽ luôn nhớ về nhau
+    bằng những ký ức đẹp nhất.
+  </p>
 
-    <div class="form-box">
+</section>
 
-      <h2>Leave Your Memory 🌷</h2>
+<!-- FORM -->
 
-      <input type="text" id="name" placeholder="Tên của bạn ✨">
+<section class="form-section">
 
-      <textarea id="message" placeholder="Viết điều bạn muốn nhắn 💖"></textarea>
+  <div class="form-box">
 
-      <button onclick="sendMessage()">
-        Send 💌
-      </button>
+    <h2>
+      Leave Your Memory 🌷
+    </h2>
 
-      <p id="status"></p>
+    <input
+    type="text"
+    id="name"
+    placeholder="Tên của bạn ✨">
 
-    </div>
+    <textarea
+    id="message"
+    placeholder="Viết điều bạn muốn nhắn 💖"></textarea>
 
-  </section>
+    <button onclick="sendMessage()">
 
-  <!-- FIREBASE -->
+      Send 💌
 
-  <script type="module" src="script.js"></script>
+    </button>
+
+    <p id="status"></p>
+
+  </div>
+
+</section>
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* FIREBASE CONFIG */
+
+const firebaseConfig = {
+
+  apiKey: "YOUR_API_KEY",
+
+  authDomain: "YOUR_AUTH_DOMAIN",
+
+  projectId: "YOUR_PROJECT_ID",
+
+  storageBucket: "YOUR_STORAGE_BUCKET",
+
+  messagingSenderId: "YOUR_SENDER_ID",
+
+  appId: "YOUR_APP_ID"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
+
+/* INTRO + MUSIC */
+
+const music =
+document.getElementById("music");
+
+music.volume = 0.15;
+
+const intro =
+document.getElementById("intro");
+
+intro.addEventListener("click", () => {
+
+  music.play();
+
+  intro.style.opacity = "0";
+
+  setTimeout(() => {
+
+    intro.style.display = "none";
+
+  }, 1500);
+
+});
+
+/* SEND MESSAGE */
+
+window.sendMessage = async function(){
+
+  const name =
+  document.getElementById("name").value;
+
+  const message =
+  document.getElementById("message").value;
+
+  const status =
+  document.getElementById("status");
+
+  if(name === "" || message === ""){
+
+    status.innerHTML =
+    "Please fill everything 💔";
+
+    return;
+  }
+
+  try{
+
+    await addDoc(
+      collection(db, "messages"),
+      {
+
+      name:name,
+
+      message:message,
+
+      createdAt:new Date()
+
+    });
+
+    status.innerHTML =
+    "Sent successfully 💖";
+
+    document.getElementById("name").value = "";
+
+    document.getElementById("message").value = "";
+
+  }catch(error){
+
+    status.innerHTML =
+    "Something went wrong 💔";
+
+  }
+
+}
+
+/* HEART EFFECT */
+
+setInterval(() => {
+
+  const heart =
+  document.createElement("div");
+
+  heart.classList.add("heart");
+
+  heart.innerHTML = "❤";
+
+  heart.style.left =
+  Math.random() * 100 + "vw";
+
+  heart.style.fontSize =
+  Math.random() * 20 + 15 + "px";
+
+  heart.style.animationDuration =
+  Math.random() * 3 + 4 + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+
+    heart.remove();
+
+  }, 7000);
+
+}, 500);
+
+</script>
 
 </body>
 </html>
