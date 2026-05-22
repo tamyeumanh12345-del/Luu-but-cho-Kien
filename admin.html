@@ -1,24 +1,184 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
 
   <title>Admin 💌</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect"
+  href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap"
+  rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:'Quicksand', sans-serif;
+
+  background:linear-gradient(
+    to bottom,
+    #ffe0ea,
+    #fff5f9,
+    #edf7ff
+  );
+
+  min-height:100vh;
+
+  padding:80px 10%;
+}
+
+h1{
+
+  text-align:center;
+
+  font-size:4rem;
+
+  color:#ff6da9;
+
+  margin-bottom:60px;
+
+  font-family:'Pacifico', cursive;
+}
+
+.message-card{
+
+  background:white;
+
+  padding:35px;
+
+  border-radius:30px;
+
+  margin-bottom:25px;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.message-card h2{
+
+  color:#ff6da9;
+
+  margin-bottom:15px;
+}
+
+.message-card p{
+
+  line-height:2;
+
+  color:#555;
+}
+
+@media(max-width:768px){
+
+  h1{
+    font-size:2.5rem;
+  }
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <section class="admin-section">
+<h1>
+  Guestbook Messages 💖
+</h1>
 
-    <h1>Guestbook Messages 💖</h1>
+<div id="messages"></div>
 
-    <div id="messages"></div>
+<script type="module">
 
-  </section>
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-  <script type="module" src="admin.js"></script>
+import {
+  getFirestore,
+  collection,
+  getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* PASSWORD */
+
+const password =
+prompt("Password?");
+
+if(password !== "forever12a"){
+
+  document.body.innerHTML = "";
+
+  throw new Error("Wrong password");
+}
+
+/* FIREBASE CONFIG */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDNGr1HMpZ6uajNpq-ZkrUAKHTiBHG9T2I",
+  authDomain: "luu-but-52647.firebaseapp.com",
+  projectId: "luu-but-52647",
+  storageBucket: "luu-but-52647.firebasestorage.app",
+  messagingSenderId: "569736243796",
+  appId: "1:569736243796:web:0c37363f469fe6d0f39bc1",
+  measurementId: "G-NTKD0DY13X"
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
+
+/* LOAD MESSAGES */
+
+async function loadMessages(){
+
+  const messagesDiv =
+  document.getElementById("messages");
+
+  const querySnapshot =
+  await getDocs(collection(db, "messages"));
+
+  querySnapshot.forEach((doc) => {
+
+    const data = doc.data();
+
+    messagesDiv.innerHTML += `
+
+      <div class="message-card">
+
+        <h2>${data.name}</h2>
+
+        <p>${data.message}</p>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+loadMessages();
+
+</script>
 
 </body>
 </html>
